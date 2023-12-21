@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+{% extends 'app/base.html' %}
+{% load static%}
+{%block title%}Login{%endblock title%}
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+        {% block login%}
+        <section class="vh-100">
+            <div class="container py-5 h-100">
+              <div class="row d-flex align-items-center justify-content-center h-100">
+                <div class="col-md-8 col-lg-7 col-xl-6">
+                  <img style="border-radius:10px" src="{% static 'app/images/banner/banner-4.jpg' %}"
+                    class="img-fluid" alt="login">
+                </div>
+                <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
+                  <form method='POST' action='' >
+                    {% csrf_token %}
+                   
+                    <h3 style="    display: flex;
+                    justify-content: space-around;">LOGIN</h3> 
+                    <!-- Email input -->
+                    <div class="form-outline mb-4">
+                      <label class="form-label" for="form1Example13">Username</label>
+                      <input type="text" name='username' id="form1Example13" class="form-control form-control-lg" />
+                      
+                    </div>
+          
+                    <!-- Password input -->
+                    <div class="form-outline mb-4">
+                      <label class="form-label" for="form1Example23">Password</label>
+                      <input type="text" name='password' id="form1Example23" class="form-control form-control-lg" />
+                      
+                    </div>
+                    {% for message  in messages  %}
+                    <p id="message" class="text-center text-muted mt-5 mb-0">{{message}}</p>
+                    {% endfor %}
+                    <div class="d-flex justify-content-around align-items-center mb-4">
+                      <!-- Checkbox -->
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="form1Example3" checked />
+                        <label class="form-check-label" for="form1Example3"> Remember me </label>
+                      </div>
+                      <a href="#!">Forgot password?</a>
+                    </div>
+          
+                    <!-- Submit button -->
+                    <button type="submit" class="btn btn-primary btn-lg btn-block" style=" border-color: #dc3545;background-color:#dc3545">Sign in</button>
+                    
+                    {% comment %} <div class="divider d-flex align-items-center my-4">
+                      <p class="text-center fw-bold mx-3 mb-0 text-muted">OR</p>
+                    </div>
+          
+                    <a class="btn btn-primary btn-lg btn-block" style="background-color: #3b5998" href="#!"
+                      role="button">
+                      <i class="fab fa-facebook-f me-2"></i>Continue with Facebook
+                    </a>
+                    <a class="btn btn-primary btn-lg btn-block" style="background-color: #55acee" href="#!"
+                      role="button">
+                      <i class="fab fa-twitter me-2"></i>Continue with Twitter</a> {% endcomment %}
+          
+                  </form>
+                </div>
+              </div>
+            </div>
+          </section>
+        
+        <script src="" async defer></script>
+        <br /><br /><br />
+        {% endblock login%}
+    </body>
+</html>

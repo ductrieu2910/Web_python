@@ -1,0 +1,90 @@
+{% extends 'app/base.html' %}
+{% load static%}
+{%block title%}Contact{%endblock title%}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+        {% block contact%}
+        <div class="body-new-2019">
+            <div class="hnc-static-container hnc-content-box-container">
+           <h1 class="hnc-static-heading1" style="text-transform:uppercase;">Chính sách giao hàng của Sneakerlele</h1>
+           <div class="hnc-static-image-container">
+              <!-- <img src="img/chinh_sach_van_chuyen.jpg" class="hnc-static-image loaded" alt="bảo hành ECCO" data-was-processed="true"> -->
+            
+              <img src="{% static 'app/images/sneakerlele.png' %}" width="300" height="300" class="hnc-static-image loading" alt="Sneakerlele giao hàng toàn quốc" data-was-processed="true">
+            </div>
+           <div class="hnc-content-box">
+           <h3 class="hnc-static-heading3">1. LƯU Ý:</h3>
+           <p class="hnc-static-text"> - Sau khi bạn đặt hàng, trong vòng 12 giờ làm việc chúng tôi sẽ liên lạc lại để xác nhận và kiểm tra thông tin. - Những rủi ro phát sinh trong quá trình vận chuyển (va đập, ẩm ướt, tai nạn..) có thể ảnh hưởng đến hàng hóa, vì thế xin Quý Khách vui lòng kiểm tra hàng hóa thật kỹ trước khi ký nhận. Máy tính sẽ không chịu trách nhiệm với những sai lệch hình thức của hàng hóa sau khi Quý khách đã ký nhận hàng.</p>
+           <h3 class="hnc-static-heading3">2. BẢNG GIÁ DỊCH VỤ GIAO HÀNG</h3>
+           <table class="hnc-static-table hnc-static-text">
+              <tbody>
+                 <tr>
+                    <td style="width: 250px; background: #2b80dd;"><strong>Theo giá trị đơn hàng</strong></td>
+                    <td style="width: 250px; background: #2b80dd;"><strong>Số Km được Miễn Phí</strong></td>
+                    <td style="width: 360px; background: #2b80dd;"><strong>Thời gian đáp ứng</strong></td>
+                    <td style="width: 360px; background: #2b80dd;"><strong>Thu phí</strong></td>
+                 </tr>
+                 <tr>
+                    <td>Dưới 200.000đ</td>
+                    <td>0.km</td>
+                    <td>Giao hàng trong vòng 6h</td>
+                    <td>30.000đ / 1 lần giao (trong vòng 10km)
+                       40.000đ / 1 lần giao (trong vòng 15km)
+                       50.000đ / 1 lần giao (trong vòng 20km)
+                       Trên 20km thu 6.000đ/km - Tối đa 30km.
+                    </td>
+                 </tr>
+                 <tr>
+                    <td>Trên 200.000đ</td>
+                    <td>0.km</td>
+                    <td>Giao hàng trong vòng 2h (*)</td>
+                    <td>20.000đ /1 lần giao (trong vòng
+                       15km)
+                       Từ km thứ 16 thu phí 6.000/km (chở hàng bằng ô tô thu phí 10.000đ/km).
+                    </td>
+                 </tr>
+                 <tr>
+                    <td>Trên 500.000đ</td>
+                    <td>20.km</td>
+                    <td>Giao hàng trong vòng 2h (*)</td>
+                    <td>Từ km thứ 21 thu phí 6.000/km (chở hàng bằng ô tô thu phí 10.000đ/km).</td>
+                 </tr>
+                 <tr>
+                    <td>Trên 1 triệu đồng</td>
+                    <td>25.km</td>
+                    <td>Giao hàng trong vòng 3h</td>
+                    <td>Từ km thứ 26 thu phí 6.000/km (chở hàng bằng ô tô thu phí 10.000đ/km).</td>
+                 </tr>
+                 <tr>
+                    <td>Trên 3 triệu đồng</td>
+                    <td>35.km</td>
+                    <td>Giao hàng trong vòng 4h (< 36km) .  Giao hàng trong 24h (36km-45km)</td>
+                    <td>Từ km thứ 36 thu phí 6.000/km (chở hàng bằng ô tô thu phí 10.000đ/km).</td>
+                 </tr>
+                 <tr>
+                    <td>Trên 50 triệu đồng</td>
+                    <td>50.km</td>
+                    <td>Theo thỏa thuận với khách hàng</td>
+                    <td>Từ km thứ 51 thu phí 10.000/km hoặc theo tư vấn từ nhân viên bán hàng.</td>
+                 </tr>
+                
+              </tbody>
+           </table>
+           <p class="hnc-static-text hnc-notice-text">Ghi chú: (*) Giao hàng nhanh 2h áp dụng cho những sản phẩm còn hàng trong kho của Sneakerlele trong cùng tỉnh thành với điểm nhận hàng của Khách hàng. (*) Giao hàng nhanh 2h áp dụng trong bán kính 20km từ các showroom bán hàng của ECCO (*) Giao hàng nhanh 2h áp dụng cho các đơn hàng lẻ (sản phẩm có kích thước nhỏ gọn, các sản phẩm không yêu cầu lắp ráp, cài đặt trước khi giao,…)</p>
+           </div>   
+          </div>  
+        </div>
+        
+        {% endblock contact%}
+        <script src="" async defer></script>
+    </body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+{% extends 'app/base.html' %}
+{% load static%}
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+        {% block detail%}
+        {% for product  in products  %}
+        <div class="container mt-5 mb-5">
+            <div class="row d-flex justify-content-center">
+                <div class="col-md-10">
+                    <div class="card">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="images p-3">
+                                    <div class="text-center p-4"> <img id="main-image" src="{{product.ImageURL}}" width="250" /> </div>
+                                    <!--<div class="thumbnail text-center"> <img onclick="change_image(this)" src="https://i.imgur.com/Rx7uKd0.jpg" width="70"> <img onclick="change_image(this)" src="https://i.imgur.com/Dhebu4F.jpg" width="70"> </div>-->
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="product p-4">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div class="d-flex align-items-center"> <i class="fa fa-long-arrow-left"></i> <span class="ml-1">Back</span> </div> <i class="fa fa-shopping-cart text-muted"></i>
+                                    </div>
+                                    <div class="mt-4 mb-3"> <span class="text-uppercase text-muted brand">Orianz</span>
+                                        <h5 class="text-uppercase">{{product.name}}</h5>
+                                        <div class="price d-flex flex-row align-items-center">
+                                            {% if product.sales_price > 0 %}
+                                                
+                                                {% with discounted_price=product.get_discounted_price %}
+                                                <h4 style="display: inline-block; float:center">{{discounted_price|floatformat:0}}$</h4>                  
+                                                {% endwith %}
+                                                <h4 style="color:#8B0000;">(<small style="text-decoration: line-through;display: inline-block; float:center"><strong>{{product.price|floatformat:0}}$</strong></small>)</h4>
+                                            {% else %}
+                                            <h4 style="display: inline-block; float:center"><strong>{{product.price|floatformat:0}}$</strong></h4>
+                                            {% endif %} 
+                                            {% comment %} <span class="act-price">{{product.price}}</span> {% endcomment %}
+                                            <!--<div class="ml-2"> <small class="dis-price">$59</small> <span>40% OFF</span> </div>-->
+                                        </div>
+                                    </div>
+                                    <p class="about">{{product.detail}}</p>
+                                    <div class="sizes mt-5">
+                                        {% comment %} <p>Size: {{ product.get_size_display }}</p> {% endcomment %}
+                                        {% csrf_token %}
+                                        <label for="size">Size:</label>
+                                        <select name="size">
+                                            {% for choice in product.get_size_display %}
+                                                <option value="{{ 4 }}">{{ 35}}</option>
+                                                <option value="{{ 5 }}">{{ 36}}</option>
+                                                <option value="{{ 6 }}">{{ 37}}</option>
+                                                <option value="{{ 7 }}">{{ 38}}</option>
+                                                <option value="{{ 8 }}">{{ 39}}</option>
+                                                <option value="{{ 9 }}">{{ 40}}</option>
+                                                <option value="{{ 10 }}">{{ 41}}</option>
+                                                <option value="{{ 11 }}">{{ 42}}</option>
+                                                <option value="{{ 12 }}">{{ 43}}</option>
+                                                <option value="{{ 13 }}">{{ 44}}</option>
+                                            {% endfor %}
+                                        </select>
+                                    </div>
+
+                                    <div class="cart mt-4 align-items-center"> 
+                                        <button data-product={{product.id}} data-action = "add" class="btn btn-danger text-uppercase mr-2 px-4 add-btn update-cart">Add to cart</button> 
+                                        <i class="fa fa-heart text-muted"></i> <i class="fa fa-share-alt text-muted"></i> 
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+        {% endblock detail%}
+    </body>
+</html>
